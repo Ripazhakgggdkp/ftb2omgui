@@ -32,14 +32,18 @@ public class MainWindow extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        inField = new javax.swing.JTextField();
+        difficultyField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        outField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        outputField = new javax.swing.JTextField();
+        BrowseDifficulty = new javax.swing.JButton();
+        BrowseOutput = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         start = new javax.swing.JButton();
         bpmField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        audioField = new javax.swing.JTextField();
+        BrowseAudio = new javax.swing.JButton();
+        start1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         consoleField = new javax.swing.JTextArea();
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -50,35 +54,34 @@ public class MainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Feel The Beats to osu!mania");
         setResizable(false);
-        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setText("Difficulty (.txt)");
 
-        inField.addActionListener(new java.awt.event.ActionListener() {
+        difficultyField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inFieldActionPerformed(evt);
+                difficultyFieldActionPerformed(evt);
             }
         });
 
         jLabel2.setText("Output");
 
-        jButton1.setText("...");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BrowseDifficulty.setText("...");
+        BrowseDifficulty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BrowseDifficultyActionPerformed(evt);
             }
         });
 
-        jButton2.setText("...");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BrowseOutput.setText("...");
+        BrowseOutput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BrowseOutputActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Initial BPM");
 
-        start.setText("Start");
+        start.setText("Create difficulty");
         start.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startActionPerformed(evt);
@@ -88,6 +91,28 @@ public class MainWindow extends javax.swing.JFrame {
         bpmField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bpmFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Audio (.mp3)");
+
+        audioField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                audioFieldActionPerformed(evt);
+            }
+        });
+
+        BrowseAudio.setText("...");
+        BrowseAudio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BrowseAudioActionPerformed(evt);
+            }
+        });
+
+        start1.setText("Create Osu! file");
+        start1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                start1ActionPerformed(evt);
             }
         });
 
@@ -103,56 +128,68 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inField)
-                            .addComponent(outField)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(bpmField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(start, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                            .addComponent(audioField, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(difficultyField)
+                            .addComponent(outputField)
+                            .addComponent(bpmField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(start)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addComponent(start1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(BrowseDifficulty, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BrowseOutput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BrowseAudio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 8, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(inField)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(audioField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BrowseAudio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(outField)
+                    .addComponent(difficultyField)
+                    .addComponent(BrowseDifficulty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(outputField)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BrowseOutput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(bpmField)
-                        .addComponent(start))
+                    .addComponent(bpmField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(start)
+                    .addComponent(start1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7))
+                .addContainerGap())
         );
-
-        getContentPane().add(jPanel1, new java.awt.GridBagConstraints());
 
         About.setText("About");
 
@@ -168,34 +205,63 @@ public class MainWindow extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar2);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inFieldActionPerformed
+    private void difficultyFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_difficultyFieldActionPerformed
 
-    }//GEN-LAST:event_inFieldActionPerformed
+    }//GEN-LAST:event_difficultyFieldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BrowseDifficultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrowseDifficultyActionPerformed
   
-        FileNameChooser file = new FileNameChooser();
-        file.FileNameOpener(inField);        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        PathGetter file = new PathGetter();
+        file.GetPath(difficultyField,false,false);
+    }//GEN-LAST:event_BrowseDifficultyActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        FileNameChooser file = new FileNameChooser();
-        file.FileNameSaver(outField);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void BrowseOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrowseOutputActionPerformed
+        PathGetter file = new PathGetter();
+        file.GetPath(outputField,true,false);
+    }//GEN-LAST:event_BrowseOutputActionPerformed
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         consoleField.setText(null);
         Converter converter = new Converter();
-        converter.Convert(inField.getText(), outField.getText(), bpmField.getText(), consoleField);
+        converter.Convert(difficultyField.getText(), outputField.getText(), bpmField.getText(), consoleField);
         
     }//GEN-LAST:event_startActionPerformed
 
     private void bpmFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpmFieldActionPerformed
 
     }//GEN-LAST:event_bpmFieldActionPerformed
+
+    private void audioFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_audioFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_audioFieldActionPerformed
+
+    private void BrowseAudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrowseAudioActionPerformed
+        PathGetter file = new PathGetter();
+        file.GetPath(audioField,false,true);
+    }//GEN-LAST:event_BrowseAudioActionPerformed
+
+    private void start1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start1ActionPerformed
+        consoleField.setText(null);
+        Converter converter = new Converter();
+        Zipper zip = new Zipper();
+        converter.Convert(difficultyField.getText(), outputField.getText(), bpmField.getText(), consoleField);
+        zip.createOSZ(audioField.getText(), outputField.getText());
+        
+    }//GEN-LAST:event_start1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,20 +292,24 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
+    private javax.swing.JButton BrowseAudio;
+    private javax.swing.JButton BrowseDifficulty;
+    private javax.swing.JButton BrowseOutput;
+    private javax.swing.JTextField audioField;
     private javax.swing.JTextField bpmField;
     private javax.swing.JTextArea consoleField;
-    private javax.swing.JTextField inField;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField difficultyField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField outField;
+    private javax.swing.JTextField outputField;
     private javax.swing.JButton start;
+    private javax.swing.JButton start1;
     // End of variables declaration//GEN-END:variables
 }
